@@ -1,0 +1,593 @@
+/*
+Theme Name: Wild Thing
+Author: BDO Web Technologies
+Author URI: https://bdo-tech.com/
+Description:  Our 'WildThing' theme was orignally built to be the home of Wild Things Photography.  Because many nature lovers are outdoors with mobile devices, it was vital that the site be mobile ready while at the same time allow for posts which include vibrant and responsive galleries.  This theme uses a bootsrap framework, allows for customization of menus and home pages sections, and is optimized for use with Envira Photo Gallery, Beaver Builder Page Builder and WordPress widgets.  Support for the theme is available by contacting the developer at support@bdo-tech.com
+Requires at least: WordPress 5.0
+Version: 1.0
+License: GNU General Public License v2
+License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
+Tags: one-column, multi-column, full-screen, responsive, relfexive, mobile-ready, bootstrap-ready, flexible-header, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, widget support, threaded-comments, theme-support, theme-customization
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+This program is free softare; you can redistribute it and/or modify it under the 
+terms of the GNU General Public License, version 2, as published by the Free 
+Software Foundation.  
+
+This program is diestributed in hope that it will be useful, but WITHOUT ANY 
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+PARTICULAR PURPOSE.  See the GNU General Public License for more details. 
+
+You should have received a copy of the GNU General Public License along with 
+this program; if not, write to the Free Software Foundation, Inc., 
+51 Franklin St., Fifth Floor, Boston, MA 02110-1301 USA
+*/
+/*  Global sytle attributes configured here */
+/*  Setting background image, fixing the image on scroll, filling the page */
+/*  Set background image for front page only */
+/*  Webkit essential based on device testing */
+#body-front-page:after{
+    content:"";
+    position:fixed; /* stretch a fixed position to the whole screen */
+    top:0;
+    height:100vh; /* fix for mobile browser address bar appearing disappearing */
+    left:0;
+    right:0;
+    z-index:-1; /* needed to keep in the background */
+    background: url('images/wild_thing_compressed.jpg') top center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/*  Setting background image for rest of site (sitewide)  */
+#body-sitewide:after{
+    content:"";
+    position:fixed; /* stretch a fixed position to the whole screen */
+    top:0;
+    height:100vh; /* fix for mobile browser address bar appearing disappearing */
+    left:0;
+    right:0;
+    z-index:-1; /* needed to keep in the background */
+    background: url('images/wild_thing_sitewide_compressed.jpg') top center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/* Setting container for page to be full width and transparent  */
+.container-fluid {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* Setting navbar width and position.  Navbar also controlled in file site.js */
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    overflow: visible;
+    z-index: 9999999;    
+}
+
+/* 
+Setting header for front page, 100% of view width and height, transparent background
+with z-index putting it in background with other images.  Note padding variations
+from sitewide header 
+*/
+#header_one {
+    display: block;
+    height: 100vh;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    padding: 2em;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10%;
+    z-index: -1000;
+}
+
+/* 
+Setting header for front page, 100% of view width and height, transparent background
+with z-index putting it in background with other images.  Note padding variations
+from front page header 
+*/
+#header_two {
+    display: block;
+    height: auto;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    padding: 2em;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: -1000;
+}
+
+/* styling for front page jumbotron */
+.header_two_jumbo {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 1em;
+    z-index: -1000;
+}
+
+/* styling for sitewide jumbotron */
+.header_jumbo {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 1em;
+    z-index: -1000;
+}
+
+/* Setting all header background colors to transparent for background image */
+.header_jumbo .jumbo {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* jumbotron font style */
+.header_jumbo h1 {
+    font-weight: bold;
+    font-size: 250%;
+}
+
+/* collapse columns and rows together by eliminating margin */
+.col-sm {
+    margin: 0;
+    padding: 0;
+}
+
+/* sitewide button color and shape styling */
+.btn {
+    color: #FFF;
+    background-color: #385315;
+    border: 1px solid #385315;
+    border-radius: 5%;
+}
+
+.btn:hover {
+    color: #385315;
+    background-color: #FFF;
+    border: 1px solid #385315;
+    border-radius: 5%;
+}
+
+/* sitewide attachment color and shape styling */
+a {
+    color:#c7724d;
+}
+
+a:hover {
+    color:#c7724d;
+    font-size: 105%;
+}
+
+/* Home page specific CSS settings begin here */
+/* First row is title row only with headline item */
+#first_row {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 2em;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+#headline {
+    width: 100%;
+    text-align: center;
+}
+
+/* Second row contains feature posts, thumbnails, and excerpts with links */
+#second_row {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+#second_row .card {
+    border-radius: 0;
+    border: none;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#second_row .card-body {
+    margin: 0;
+    padding: 1em 1em 1em 1em;
+}
+
+#second_row .card-body h5 {
+    text-align: center;
+}
+
+#second_row .card-body p {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#second_row .card-body a {
+    width: 10em;
+    display: block;
+    margin: 0 auto;
+}
+
+#second_row .card-body p a {
+    width: auto;
+    display: inline-block;
+    margin: auto;
+}
+
+.post-thumbnail img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    object-fit: cover;
+    box-shadow: 1em 1.5em 2em rgba(136,136,136,1) ;
+}
+
+
+#fourth_row {
+    border-radius: 0;
+    border: none;
+    background-color: rgba(255, 255, 255, 1);
+
+}
+
+/* Third row on front page is carousel item   */
+/* Fourth row of front page contains about us text and image */
+#fourth_row .card {
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    background-color: rgba(0,0,0,0);
+}
+
+#about_us .card-body {
+
+    height: auto;
+    padding: 2em;
+}
+
+#about_us_image img {
+    width: 80%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    box-shadow: 1em 1.5em 2em rgba(136,136,136,1) ;
+}
+
+/* Fifth row on front page consists only of a feature image */
+.p-center-image {
+    text-align: center;
+}
+
+.p-full-image {
+    width: 100%;
+}
+
+#feature_photo {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#feature_photo p {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#feature_photo p img {
+    width: 100%;
+}
+
+/* Sixth row on front page has two images and space for contact us form */
+#sixth_row {
+    border-radius: 0;
+    border: none;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+#sixth_row .card {
+    border-radius: 0;
+    border: none;
+    background-color: rgba(0,0,0,0);
+}
+
+#sixth_row .card-body {
+    height: auto;
+}
+
+#sixth_row .card-body img {
+    width: 80%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    box-shadow: 1em 1.5em 2em rgba(136,136,136,1) ;
+    box-shadow: 1em 1.5em 2em rgba(136,136,136,1) ;
+}
+
+
+#sixth_row .contact_us {
+    width: 80%;
+    margin-left: 10%;
+}
+
+/* Sitewide page settings  */
+/* Setting body element for main content on page */
+.site-body {
+    height: auto;
+    margin: 0 0 2em 0;
+    padding: 2em;
+    background-color: rgba(255, 255, 255, 1);
+    border-right:1px solid #f0f5f5;
+}
+
+/* Default image handling applied to feature image on blog post pages */
+.site-body img {
+    width: 100%;
+    height: auto;
+    margin-right: 1.5em;
+    object-fit: cover;
+    float: left;
+    box-shadow: 1em 1.5em 2em rgba(136,136,136,1) ;
+}
+
+/* Default image hanndling for images within text with otherwise unformatted blog posts */
+.site-body p img {
+    width: 20%;
+    height: auto;
+    margin-right: 1.5em;
+    object-fit: cover;
+    float: left;
+    box-shadow: 0 0 0;
+}
+
+/* Heading appearance for titles on website pages */
+.site-body h2 {
+    clear: both;
+    margin-top: 2em;
+}
+
+/* Sitewide sidebar styling */
+/* Setting margin and transparent background */
+.site-sidebar {
+    background-color: rgba(255, 255, 255, 1);
+    margin: 0 0 2em 0;
+}
+
+/* Styling for sidebar images */
+.site-sidebar img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5em;
+    object-fit: cover;
+    float: left;
+    box-shadow: 1em 1em 1.5em rgba(136,136,136,1) ;
+}
+
+/* Styling for category and tag lists in sidebar */
+.site-sidebar.col-lg-3 ul {
+    list-style-type: none;
+    margin-left: -1.5em;
+}
+
+/* Setting style for blog post listing feature images */
+.blog_post_thumbnail {
+    width: 50%;
+    height: auto;
+}
+
+/* Setting style for photo gallery Envira plugin display alements */
+#envirabox-content {
+    margin-top: 2em;
+}
+
+#envirabox-title {
+    visibility: hidden;
+}
+
+div.caption {
+    visibility: hidden;
+}
+
+/* Setting style for comments on blog pages */
+#footer_row {
+    border-radius: 0;
+    border: none;
+    background-color: #385315;
+    color: #FFF;
+}
+
+#footer_row .card {
+    border-radius: 0;
+    border: none;
+    background-color: rgba(0,0,0,0);
+}
+
+#footer_row .card-body {
+    color: #FFF;
+    height: auto;
+    padding: 2em;
+}
+
+.comment-form-comment label {
+    float: left;
+}
+
+.comment-form-comment textarea {
+    clear: both;
+    width: 100%;
+}
+
+/*  Styling for footer elements */
+.col_white_amrc { 
+    color:#FFF;
+}
+
+footer { 
+    width:100%; 
+    background-color:#263238; 
+    min-height:250px; 
+    padding:10px 0px 25px 0px ;
+}
+
+.pt2 { 
+    padding-top:40px ; 
+    margin-bottom:20px ;
+}
+
+footer p { 
+    font-size:13px; 
+    color:#CCC; 
+    padding-bottom:0px; 
+    margin-bottom:8px;
+}
+
+.mb10 { 
+    padding-bottom:15px ;
+}
+
+.footer_ul_amrc { 
+    margin:0px ; 
+    list-style-type:none ; 
+    font-size:14px; 
+    padding:0px 0px 10px 0px ; 
+}
+
+.footer_ul_amrc li {
+    padding:0px 0px 5px 0px;
+}
+
+.footer_ul_amrc li a{ 
+    color:#CCC;
+}
+
+.footer_ul_amrc li a:hover{
+    color:#fff; 
+    text-decoration:none;
+}
+
+.fleft { 
+    float:left;
+}
+
+.padding-right { 
+    padding-right:10px; 
+}
+
+.footer_ul2_amrc {
+    margin:0px; 
+    list-style-type:none; 
+    padding:0px;
+}
+
+.footer_ul2_amrc li p { 
+    display:table; 
+}
+
+.footer_ul2_amrc li a:hover { 
+    text-decoration:none;
+}
+
+.footer_ul2_amrc li i { 
+    margin-top:5px;
+}
+
+.bottom_border { 
+    border-bottom:1px solid #323f45; 
+    padding-bottom:20px;
+}
+
+.foote_bottom_ul_amrc {
+    list-style-type:none;
+    padding:0px;
+    display:table;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+}
+
+.foote_bottom_ul_amrc li { 
+    display:inline;
+}
+
+.foote_bottom_ul_amrc li a { 
+    color:#999; 
+    margin:0 12px;
+}
+
+.social_footer_ul { 
+    display:table; 
+    margin:15px auto 0 auto; 
+    list-style-type:none;  
+}
+
+.social_footer_ul li { 
+    padding-left:20px; 
+    padding-top:10px; 
+    float:left; 
+}
+
+.social_footer_ul li a { 
+    color:#CCC; 
+    border:1px solid #CCC; 
+    padding:8px;
+    border-radius:50%;
+}
+
+.social_footer_ul li i {  
+    width:20px; 
+    height:20px; 
+    text-align:center;
+}
+
+.col .social-media-icon {
+    width: 22%;
+}
+
+.col .social-media-icon img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+
+/* Additional settings as needed based on Bootstrap break points */
+/* Extra small devices (portrait phones, less than 576px) */
+@media only screen and (min-width: 0px) and (max-width: 575.98px) {
+
+
+
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) { 
+
+
+}
+
+/* Large devices (desktops, less than 1200px)  */
+@media (max-width: 1199.98px) { 
+
+
+}

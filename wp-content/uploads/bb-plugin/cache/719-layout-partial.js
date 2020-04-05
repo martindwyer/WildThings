@@ -1,0 +1,3 @@
+
+(function($){$(function(){if(typeof $.fn.magnificPopup!=='undefined'){$('.fl-node-5a7e088e42019 .fl-mosaicflow-content, .fl-node-5a7e088e42019 .fl-gallery').magnificPopup({delegate:'.fl-photo-content a',closeBtnInside:false,type:'image',gallery:{enabled:true,navigateByImgClick:true,},'image':{titleSrc:function(item){}},callbacks:{open:function(){}}});}
+$('.fl-node-5a7e088e42019 .fl-gallery-item').wookmark({align:'center',autoResize:true,container:$('.fl-node-5a7e088e42019 .fl-gallery'),offset:20,itemWidth:150,verticalOffset:0});});})(jQuery);

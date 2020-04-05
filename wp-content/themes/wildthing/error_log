@@ -1,0 +1,6 @@
+[01-Jan-2019 21:42:13 UTC] PHP Notice:  Undefined index: email_address in /home/martin235/public_html/wildthings/wp-content/themes/wildthing/sending_message.php on line 2
+[01-Jan-2019 21:42:13 UTC] PHP Notice:  Undefined index: contact_message in /home/martin235/public_html/wildthings/wp-content/themes/wildthing/sending_message.php on line 3
+[01-Jan-2019 22:11:39 UTC] PHP Notice:  Undefined index: email_address in /home/martin235/public_html/wildthings/wp-content/themes/wildthing/sending_message.php on line 2
+[01-Jan-2019 22:11:39 UTC] PHP Notice:  Undefined index: contact_message in /home/martin235/public_html/wildthings/wp-content/themes/wildthing/sending_message.php on line 3
+[02-Jan-2019 14:25:24 UTC] PHP Notice:  Undefined index: email_address in /home/martin235/public_html/wildthings/wp-content/themes/wildthing/sending_message.php on line 2
+[02-Jan-2019 14:25:24 UTC] PHP Notice:  Undefined index: contact_message in /home/martin235/public_html/wildthings/wp-content/themes/wildthing/sending_message.php on line 3
